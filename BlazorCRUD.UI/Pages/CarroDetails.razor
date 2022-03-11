@@ -1,0 +1,55 @@
+﻿@page "/carrodetails"
+@page "/carrodetails/{id:int}"
+@using Model
+@using Interfaces
+@inject ICarroService CarroServices
+
+<h1>CarroDetails</h1>
+
+<EditForm Model="@carro">
+    <table class="table">
+        <tr>
+            <td>Marca</td>
+            <td><input type="text" @bind="carro.Marca" /></td>
+        </tr>
+        <tr>
+            <td>Dueño</td>
+            <td><input type="text" @bind="carro.Dueno" /></td>
+        </tr>
+       
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Save" @onclick="saveCarro"/>
+                <input type="button" value="Cancel" @onclick="cancelCarro" />
+            </td>
+        </tr>
+    </table>
+
+
+</EditForm>
+
+@code {
+    [Parameter]
+    public int id {get; set;}
+
+    Carro carro = new Carro();
+
+    protected void cancelCarro() { }
+
+    protected async Task saveCarro()
+    {
+        await CarroServices.saveCarro(carro);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id==0)
+        {
+
+        }
+        else
+        {
+            carro = await CarroServices.getDetails(id);
+        }
+    }
+}

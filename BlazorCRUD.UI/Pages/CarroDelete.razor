@@ -1,0 +1,53 @@
+﻿@page "/carrodelete/{id:int}"
+@using Model
+@using Interfaces
+@inject ICarroService CarroServices
+@inject NavigationManager NavigatioManager
+
+<h3>CarroDelete</h3>
+
+<EditForm Model="@carro">
+    <table class="table">
+        <tr>
+            <td>Marca</td>
+            <td><input type="text" @bind="carro.Marca" /></td>
+        </tr>
+        <tr>
+            <td>Dueño</td>
+            <td><input type="text" @bind="carro.Dueno" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <input type="submit" value="Delete" @onclick="deleteCarro" />
+                <input type="button" value="Cancel" @onclick="cancel" />
+            </td>
+        </tr>
+    </table>
+
+
+</EditForm>
+
+@code {
+    Carro carro = new Carro();
+
+    [Parameter]
+    public int id { get; set; }
+
+    protected async Task deleteCarro()
+    {
+        await CarroServices.deleteCarro(id);
+        NavigatioManager.NavigateTo("/carrolist");
+
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        carro = await CarroServices.getDetails(id);
+    }
+
+    protected void cancel()
+    {
+        NavigatioManager.NavigateTo("/carrolist");
+
+    }
+}

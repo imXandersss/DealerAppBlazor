@@ -1,0 +1,12 @@
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\bin\Debug\net5.0\BlazorCRUD.Model.deps.json
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\bin\Debug\net5.0\BlazorCRUD.Model.dll
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\bin\Debug\net5.0\ref\BlazorCRUD.Model.dll
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\bin\Debug\net5.0\BlazorCRUD.Model.pdb
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\BlazorCRUD.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\BlazorCRUD.Model.AssemblyInfoInputs.cache
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\BlazorCRUD.Model.AssemblyInfo.cs
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\BlazorCRUD.Model.csproj.CoreCompileInputs.cache
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\BlazorCRUD.Model.dll
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\ref\BlazorCRUD.Model.dll
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\BlazorCRUD.Model.pdb
+C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.Model\obj\Debug\net5.0\BlazorCRUD.Model.csproj.AssemblyReference.cache

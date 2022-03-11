@@ -1,0 +1,57 @@
+﻿@page "/carrolist"
+@using Model
+@using Interfaces
+@inject ICarroService CarroServices
+
+
+<h3>CarroList</h3>
+<p>Esta página muestra la lista de los carros</p>
+@if(carros == null)
+{
+
+
+<p><em>Loading...</em></p>  }
+else { 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Dueño</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var carro in carros)
+                {
+            <tr>
+                <td>@carro.Id</td>
+                <td>@carro.Marca</td>
+                <td>@carro.Dueno</td>
+                <td><a href="/carrodetails/@carro.Id"><i>Editar</i></a></td>
+                <td><a href="/carrodelete/@carro.Id"><i>Eliminar</i></a></td>
+
+            </tr>
+                }
+        </tbody>
+    </table>
+
+}
+
+
+@code { 
+    private IEnumerable<Carro> carros;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            carros = await CarroServices.getAllCarros();
+        }
+        catch (Exception e)
+        {
+            throw;
+        }
+    }
+}
