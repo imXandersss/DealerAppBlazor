@@ -4,9 +4,13 @@
 @using Interfaces
 @inject ICarroService CarroServices
 
-<h1>CarroDetails</h1>
-
 <EditForm Model="@carro">
+    @if (@mensaje!="")
+    {
+        <div class="alert alert-primary" role="alert">
+           @mensaje
+        </div>
+                }
     <table class="table">
         <tr>
             <td>Marca</td>
@@ -39,8 +43,8 @@
 
         <tr>
             <td colspan="2" style="text-align:center">
-                <input type="submit" value="Save" @onclick="saveCarro" />
-                <input type="button" value="Cancel" @onclick="cancelCarro" />
+                <input class="btn btn-succes" type="submit" value="Save" @onclick="saveCarro" />
+                <input class="btn btn-warning" type="button" value="Cancel" @onclick="cancelCarro" />
             </td>
         </tr>
     </table>
@@ -53,12 +57,20 @@
     public int id {get; set;}
 
     Carro carro = new Carro();
-
+    private string mensaje="";
     protected void cancelCarro() { }
 
     protected async Task saveCarro()
     {
-        await CarroServices.saveCarro(carro);
+        if(carro.Chasis==null & carro.Modelo==null & carro.Marca == null & carro.foto == null & carro.comentario == null & carro.color == null & carro.ano == null)
+        {
+            mensaje = $"No pueden haber campos nulos";
+        }
+        else
+        {
+            await CarroServices.saveCarro(carro);
+        }
+
     }
 
     protected override async Task OnInitializedAsync()

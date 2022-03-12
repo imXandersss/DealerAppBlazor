@@ -105,21 +105,22 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroList.razor"
-        
-    private IEnumerable<Carro> carros;
+#line 51 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroList.razor"
+           
+        private IEnumerable<Carro> carros;
 
-    protected override async Task OnInitializedAsync()
-    {
-        try
+        protected override async Task OnInitializedAsync()
         {
-            carros = await CarroServices.getAllCarros();
+            try
+            {
+                carros = await CarroServices.getAllCarros();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
-        catch (Exception e)
-        {
-            throw;
-        }
-    }
+    
 
 #line default
 #line hidden

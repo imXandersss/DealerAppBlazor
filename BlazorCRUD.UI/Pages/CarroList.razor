@@ -3,45 +3,63 @@
 @using Interfaces
 @inject ICarroService CarroServices
 
+<div class="alert alert-primary" role="alert">
+    <p>Todos los vehiculos</p>
+    </div>
+    @if (carros == null)
+    {
 
-<h3>CarroList</h3>
-<p>Esta página muestra la lista de los carros</p>
-@if(carros == null)
-{
+
+        <p><em>Loading...</em></p> }
+    else
+    {
+        <div class="container principal">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="row">
+
+                        @foreach (var carro in carros)
+                        {
+
+                            <div class="col-lg-4 col-md-12 mb-4">
+                                <div class="card-section">
+                                    <div class="card row cardcar " style="width: 18rem;">
+                                        <img style="border-radius: 8px;   height: 229px" src="@carro.foto" class="card-img-top cardcar" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">@carro.Marca</h5>
+                                            <p class="card-text">En venta</p>
+                                            <a href="/carrodetails/@carro.Id"><i>Editar</i></a>
+                                            <a href="/carrodelete/@carro.Id"><i>Eliminar</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
-<p><em>Loading...</em></p>  }
-else { 
-    
-            @foreach(var carro in carros)
-                {
-               <body>
-                <div class="card" style="width: 18rem;">
-                    <img src="@carro.foto" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">@carro.Marca</h5>
-                        <p class="card-text">En venta</p>
+
+
+                        }
                     </div>
                 </div>
-                </body>
-            
-                }
+            </div>
+        </div>
 
-}
+    }
 
 
-@code { 
-    private IEnumerable<Carro> carros;
 
-    protected override async Task OnInitializedAsync()
-    {
-        try
+    @code {
+        private IEnumerable<Carro> carros;
+
+        protected override async Task OnInitializedAsync()
         {
-            carros = await CarroServices.getAllCarros();
-        }
-        catch (Exception e)
-        {
-            throw;
+            try
+            {
+                carros = await CarroServices.getAllCarros();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
         }
     }
-}

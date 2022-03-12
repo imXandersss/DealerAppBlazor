@@ -106,18 +106,26 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 51 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroDetails.razor"
+#line 55 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroDetails.razor"
        
     [Parameter]
     public int id {get; set;}
 
     Carro carro = new Carro();
-
+    private string mensaje="";
     protected void cancelCarro() { }
 
     protected async Task saveCarro()
     {
-        await CarroServices.saveCarro(carro);
+        if(carro.Chasis==null & carro.Modelo==null & carro.Marca == null & carro.foto == null & carro.comentario == null & carro.color == null & carro.ano == null)
+        {
+            mensaje = $"No pueden haber campos nulos";
+        }
+        else
+        {
+            await CarroServices.saveCarro(carro);
+        }
+
     }
 
     protected override async Task OnInitializedAsync()
