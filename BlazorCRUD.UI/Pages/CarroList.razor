@@ -12,30 +12,20 @@
 
 <p><em>Loading...</em></p>  }
 else { 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Marca</th>
-                <th>Dueño</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+    
             @foreach(var carro in carros)
                 {
-            <tr>
-                <td>@carro.Id</td>
-                <td>@carro.Marca</td>
-                <td>@carro.Dueno</td>
-                <td><a href="/carrodetails/@carro.Id"><i>Editar</i></a></td>
-                <td><a href="/carrodelete/@carro.Id"><i>Eliminar</i></a></td>
-
-            </tr>
+               <body>
+                <div class="card" style="width: 18rem;">
+                    <img src="@carro.foto" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@carro.Marca</h5>
+                        <p class="card-text">En venta</p>
+                    </div>
+                </div>
+                </body>
+            
                 }
-        </tbody>
-    </table>
 
 }
 

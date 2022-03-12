@@ -106,7 +106,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroDetails.razor"
+#line 51 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroDetails.razor"
        
     [Parameter]
     public int id {get; set;}

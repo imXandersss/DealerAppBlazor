@@ -13,13 +13,33 @@
             <td><input type="text" @bind="carro.Marca" /></td>
         </tr>
         <tr>
-            <td>Dueño</td>
-            <td><input type="text" @bind="carro.Dueno" /></td>
+            <td>Chasis</td>
+            <td><input type="text" @bind="carro.Chasis" /></td>
         </tr>
-       
+        <tr>
+            <td>Modelo</td>
+            <td><input type="text" @bind="carro.Modelo" /></td>
+        </tr>
+        <tr>
+            <td>Año</td>
+            <td><input type="text" @bind="carro.ano" /></td>
+        </tr>
+        <tr>
+            <td>Foto</td>
+            <td><input type="text" @bind="carro.foto" /></td>
+        </tr>
+        <tr>
+            <td>Color</td>
+            <td><input type="text" @bind="carro.color" /></td>
+        </tr>
+        <tr>
+            <td>Comentario</td>
+            <td><input type="text" @bind="carro.comentario" /></td>
+        </tr>
+
         <tr>
             <td colspan="2" style="text-align:center">
-                <input type="submit" value="Save" @onclick="saveCarro"/>
+                <input type="submit" value="Save" @onclick="saveCarro" />
                 <input type="button" value="Cancel" @onclick="cancelCarro" />
             </td>
         </tr>

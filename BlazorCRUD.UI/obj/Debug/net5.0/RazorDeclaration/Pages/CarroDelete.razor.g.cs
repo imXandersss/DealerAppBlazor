@@ -105,7 +105,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroDelete.razor"
+#line 51 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroDelete.razor"
        
     Carro carro = new Carro();
 

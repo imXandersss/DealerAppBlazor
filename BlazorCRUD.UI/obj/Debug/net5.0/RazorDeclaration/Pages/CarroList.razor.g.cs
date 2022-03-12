@@ -105,7 +105,7 @@ using Interfaces;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroList.razor"
+#line 33 "C:\Users\xander\source\repos\BlazorCRUD\BlazorCRUD.UI\Pages\CarroList.razor"
         
     private IEnumerable<Carro> carros;
 

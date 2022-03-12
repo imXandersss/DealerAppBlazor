@@ -36,14 +36,14 @@ namespace BlazorCRUD.Data.Dapper.Repositories
         public async Task<IEnumerable<Carro>> getAllCarros()
         {
             var db = dbConnection();
-            var sql = @"SELECT id,marca, dueno FROM RazorCRUD";
+            var sql = @"SELECT id, marca, modelo, color, ano, comentario, foto, chasis FROM RazorCRUD";
             return await db.QueryAsync<Carro>(sql.ToString(),new { });
         }
 
         public async Task<Carro> getCarroDetails(int Id)
         {
             var db = dbConnection();
-            var sql = @"SELECT id,marca, dueno FROM [dbo].[RazorCRUD] WHERE id = @Id";
+            var sql = @"SELECT id, marca, modelo, color, ano, comentario, foto, chasis FROM [dbo].[RazorCRUD] WHERE id = @Id";
             return await db.QueryFirstOrDefaultAsync<Carro>(sql.ToString(), new {Id=Id});
         }
 
@@ -52,10 +52,10 @@ namespace BlazorCRUD.Data.Dapper.Repositories
             
             var db = dbConnection();
 
-            var sql = @" INSERT INTO RazorCRUD ( marca, dueno) VALUES (  @marca, @dueno)";
+            var sql = @" INSERT INTO RazorCRUD ( marca, modelo, color, ano, comentario, foto, chasis) VALUES (@marca, @modelo, @color, @ano, @comentario, @foto, @chasis)";
 
             
-            var result = await db.ExecuteAsync(sql.ToString(), new {carro.Marca, carro.Dueno});
+            var result = await db.ExecuteAsync(sql.ToString(), new { carro.Marca, carro.Modelo, carro.Chasis, carro.ano, carro.color, carro.comentario, carro.foto });
 
             return result > 0;
         }
@@ -64,10 +64,16 @@ namespace BlazorCRUD.Data.Dapper.Repositories
         {
             var db = dbConnection();
             var sql = @" UPDATE RazorCRUD 
-                         SET marca = @marca, dueno = @dueno
+                         SET marca = @marca,
+                             chasis = @Chasis,
+                             modelo=@modelo, 
+                             color=@color, 
+                             ano=@ano, 
+                             comentario=@comentario, 
+                             foto=@foto
                          WHERE id = @Id ";
 
-            var result = await db.ExecuteAsync(sql.ToString(), new { carro.Id, carro.Marca, carro.Dueno});
+            var result = await db.ExecuteAsync(sql.ToString(), new { carro.Id, carro.Marca, carro.Modelo,carro.Chasis, carro.ano, carro.color, carro.comentario, carro.foto});
          
             return result > 0;
         } 
